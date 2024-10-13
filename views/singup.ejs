@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div {
+            border: solid;
+            width: 700px;
+            height: 550px;
+            padding-left: px;
+            margin-left: 300px;
+            margin-top: 40px;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(45deg, dodgerblue, white, purple);
+
+
+        }
+
+        .input {
+            margin-top: 40px;
+
+            width: 350px;
+
+
+
+            border-radius: 0px;
+
+            align-items: center;
+
+            text-align: center;
+
+            color: black;
+            height: 15px;
+
+
+
+        }
+
+        label {
+            display: inline-block;
+            width: 240px;
+            text-align: left;
+
+
+            margin-top: 30px;
+
+
+        }
+
+
+
+        h1 {
+
+
+            text-align: center;
+            text-decoration: ;
+
+            padding-bottom: 30px;
+        }
+
+        #ab {
+            text-align: center;
+            margin-top: 60px;
+            /* background-color:rgb(66, 66, 216); */
+           /* / background-color: rgb(219, 23, 219); */
+           background-color: slateblue;
+            color: white;
+            width: 70px;
+            height: 30px;
+        }
+
+        .alert-box {
+            border: 1px solid black;
+            display: inline-block;
+            top: 0px;
+            position: absolute;
+            width: 400px;
+            height: 150px;
+
+            border-radius: 5px;
+            /* background-color: rgb(98, 98, 139); */
+            background-color: blueviolet;
+
+            color: white;
+
+            font-size: 18px;
+            z-index: 1;
+
+            left: calc(50% - 190px);
+            text-align: center;
+            align-content: center;
+
+
+
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="form">
+
+        <h1>Sign up page</h1>
+
+
+
+        <form action="/use/submit" method="post">
+
+            <label for="name">Name:</label>
+            <input class="input" type="text" id="name" placeholder="Enter name" name="name" value="<%=details ? details.name : ''%>"
+                required>
+            <br>
+
+            <label for="age">Age:</label>
+            <input class="input" type="text" placeholder="Enter age" name="age" value="<%= details ? details.age : ''%>">
+            <br>
+
+
+            <label for="contactno">Contact no:</label>
+            <input type="text" class="input" pattern="03[0-9]{2}-[0-9]{7}"
+                title="Please enter a valid Pakistani mobile number (e.g., 03xx-xxxxxxx  )" required
+                placeholder="Enter contact number" name="contact" value="<%= details ? details.contact :''%>">
+            <br>
+
+            <label for="email">Email:</label>
+            <input class="input" type="email" placeholder="Enter email" name="email" value="<%=details ? details.email : ''%>"
+                required  autocomplete="off">
+            <br>
+
+
+
+            <label for="password">Password:</label>
+            <input class="input" type="password" placeholder="Enter password" name="password"
+                value="<%= details ? details.password : ''%>" pattern=".{8}"
+                title="Invalid password. It should contain exectly 8 charecters." required   autocomplete="off">
+
+
+            <br>
+
+            <input id="ab" type="submit" value="sign up">
+
+        </form>
+
+
+
+
+
+    </div>
+    <% if(message){%>
+
+        <span class="alert-box" id="alert1">
+
+            <p>
+                <%=message%>
+            </p>
+
+        </span>
+
+        <%}%>
+
+
+
+
+
+            <script>
+
+                const box = document.getElementById('alert1');
+                setTimeout(() => {
+                    box.style.display = 'none';
+                }, 2000);
+              
+if(message){
+    delete message;
+}
+
+            </script>
+
+</body>
+
+</html>
